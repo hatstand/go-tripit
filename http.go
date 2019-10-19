@@ -224,7 +224,7 @@ func (t *TripIt) GetAccessToken() (map[string]string, error) {
 func parseQS(body io.Reader) (map[string]string, error) {
 	buf := make([]byte, 1024) // assume oauth token response won't be larger
 	l, err := body.Read(buf)
-	if err != nil {
+	if err != nil && err != io.EOF {
 		return nil, err
 	}
 	qm, err := url.ParseQuery(string(buf[0:l]))

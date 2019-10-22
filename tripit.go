@@ -96,6 +96,9 @@ func (w *Warning) Error() string {
 type Response struct {
 	Timestamp        string                    `json:"timestamp,omitempty" xml:"timestamp"`
 	NumBytes         int                       `json:"num_bytes,string,omitempty" xml:"num_bytes"`
+	PageNum          int                       `json:"page_num,omitempty" xml:"page_num"`
+	PageSize         int                       `json:"page_size,omitempty" xml:"page_size"`
+	MaxPage          int                       `json:"max_page,omit_empty" xml:"max_page"`
 	Error            ErrorVector               `json:"Error,omitempty" xml:"Error"`                       // optional
 	Warning          WarningVector             `json:"Warning,omitempty" xml:"Warning"`                   // optional
 	Trip             TripPtrVector             `json:"Trip,omitempty" xml:"Trip"`                         // optional
